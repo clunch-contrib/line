@@ -1,0 +1,24 @@
+{
+  "name": "@clunch/line",
+  "version": "0.0.0-alpha",
+  "description": "📈 折线图组件，包括折线和曲线、单条、多条、背景、渐变等常见的折线图。",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/clunch-contrib/line.git"
+  },
+  "keywords": [
+    "clunch",
+    "contrib",
+    "line"
+  ],
+  "author": "你好2007",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/clunch-contrib/line/issues"
+  },
+  "homepage": "https://github.com/clunch-contrib/line#readme"
+}
