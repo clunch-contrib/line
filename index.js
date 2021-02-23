@@ -107,7 +107,7 @@ export default ['number', 'json', '$ruler', '$getLoopColors', function ($number,
                 painter.beginPath().config('strokeStyle', attr.colors[i]);
                 for (j = 0; j < attr.data[i].length; j++) {
                     x = attr.x + 50 + (attr.width - 100) / (attr.data[i].length - 1) * j;
-                    y = attr.height - 50 - (attr.data[i][j] - ruler.min) * yTemp;
+                    y = attr.y + attr.height - 50 - (attr.data[i][j] - ruler.min) * yTemp;
                     painter.lineTo(x, y);
                 }
                 painter.stroke();
