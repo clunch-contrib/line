@@ -1,6 +1,8 @@
 # line
 📈 折线图组件，包括折线和曲线、单条、多条、背景、渐变等常见的折线图。
 
+<p align='center'><img width='400' src='./view.png'></p>
+
 <p>
   <a href="https://hai2007.gitee.io/npm-downloads?interval=7&packages=@clunch/line"><img src="https://img.shields.io/npm/dm/@clunch/line.svg" alt="downloads"></a>
   <a href="https://www.npmjs.com/package/@clunch/line"><img src="https://img.shields.io/npm/v/@clunch/line.svg" alt="Version"></a>
@@ -43,6 +45,7 @@ Clunch.series('ui-line',line);
 |y|number|图形左上角位置纵坐标|0||
 |width|number|图形宽|画布的宽||
 |height|number|图形高|画布的高||
+|colors|Array\<string\>|线条的颜色|内置循环色||
 |max-value|number|最大值|动态计算得出||
 |min-value|number|最小值|动态计算得出||
 

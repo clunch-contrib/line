@@ -36,7 +36,7 @@ var initConfig = function (attr, that) {
 
 };
 
-export default ['number', 'json', '$ruler', function ($number, $json, $ruler) {
+export default ['number', 'json', '$ruler', '$getLoopColors', function ($number, $json, $ruler, $getLoopColors) {
     return {
         attrs: {
 
@@ -54,6 +54,9 @@ export default ['number', 'json', '$ruler', function ($number, $json, $ruler) {
             // 刻度尺数据
             ruler: $json(),
 
+            // 颜色
+            colors: $json(null),
+
             // 最值
             "max-value": $number(null)(true),
             "min-value": $number(null)(true)
@@ -69,6 +72,9 @@ export default ['number', 'json', '$ruler', function ($number, $json, $ruler) {
             initConfig(attr, this);
 
             var ruler = $ruler(attr['max-value'], attr['min-value'], 5);
+
+            // 校对颜色
+            if (attr.colors == null) attr.colors = $getLoopColors(attr.data.length);
 
             // Y刻度尺
             this.$reuseSeriesLink('ruler', {
@@ -92,6 +98,20 @@ export default ['number', 'json', '$ruler', function ($number, $json, $ruler) {
                 }
             });
 
+            var i, j, x, y;
+
+            var yTemp = (attr.height - 100) / (ruler.max - ruler.min);
+
+            // 绘制曲线
+            for (i = 0; i < attr.data.length; i++) {
+                painter.beginPath().config('strokeStyle', attr.colors[i]);
+                for (j = 0; j < attr.data[i].length; j++) {
+                    x = attr.x + 50 + (attr.width - 100) / (attr.data[i].length - 1) * j;
+                    y = attr.height - 50 - (attr.data[i][j] - ruler.min) * yTemp;
+                    painter.lineTo(x, y);
+                }
+                painter.stroke();
+            }
 
         }
     };
