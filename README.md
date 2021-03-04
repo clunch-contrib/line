@@ -53,11 +53,6 @@ Clunch.series('ui-line',line);
 
 [<< 你可以点击此处学习Clunch.js如何使用](https://hai2007.gitee.io/clunch/#/course/introduce?fixed=top)
 
-## 联系我们
-
-- QQ: 2501482523
-- Email: 2501482523@qq.com
-
 开源协议
 ---------------------------------------
 [MIT](https://github.com/@clunch/line-contrib/line/blob/master/LICENSE)
