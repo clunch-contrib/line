@@ -36,7 +36,7 @@ var initConfig = function (attr, that) {
 
 };
 
-export default ['number', 'json', '$ruler', '$getLoopColors', function ($number, $json, $ruler, $getLoopColors) {
+export default ['number', 'boolean', 'json', '$ruler', '$getLoopColors', '$cardinal', function ($number, $boolean, $json, $ruler, $getLoopColors, $cardinal) {
     return {
         attrs: {
 
@@ -59,7 +59,10 @@ export default ['number', 'json', '$ruler', '$getLoopColors', function ($number,
 
             // 最值
             "max-value": $number(null)(true),
-            "min-value": $number(null)(true)
+            "min-value": $number(null)(true),
+
+            // 是否插值
+            "is-interpolation": $boolean(false)
 
         },
         region: {
@@ -120,18 +123,36 @@ export default ['number', 'json', '$ruler', '$getLoopColors', function ($number,
                 }
             });
 
-            var i, j, x, y;
+            var i, j, x, y, positions, cardinal;
 
             var yTemp = (attr.height - 100) / (ruler.max - ruler.min);
 
             // 绘制曲线
             for (i = 0; i < attr.data.length; i++) {
+
                 painter.beginPath().config('strokeStyle', attr.colors[i]);
+                if (attr["is-interpolation"]) positions = [];
+
                 for (j = 0; j < attr.data[i].length; j++) {
                     x = attr.x + 50 + (attr.width - 100) / (attr.data[i].length - 1) * j;
                     y = attr.y + attr.height - 50 - (attr.data[i][j] - ruler.min) * yTemp;
-                    painter.lineTo(x, y);
+
+                    // 如果需要插值，就把点记录下来先
+                    if (attr["is-interpolation"]) positions.push([x, y]);
+
+                    // 否则直接绘制
+                    else painter.lineTo(x, y);
                 }
+
+                // 插值的话，需要自己计算插值函数
+                if (attr["is-interpolation"]) {
+                    cardinal = $cardinal().setP(positions);
+                    for (j = positions[0][0]; j < positions[positions.length - 1][0]; j += 5) {
+                        painter.lineTo(j, cardinal(j));
+                    };
+                }
+
+
                 painter.stroke();
             }
 

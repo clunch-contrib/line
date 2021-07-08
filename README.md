@@ -2,6 +2,7 @@
 📈 折线图组件，包括折线和曲线、单条、多条、背景、渐变等常见的折线图。
 
 <p align='center'><img width='400' src='./view.png'></p>
+<p align='center'><img width='400' src='./view-interpolation.png'></p>
 
 <p>
   <a href="https://hai2007.gitee.io/npm-downloads?interval=7&packages=@clunch/line"><img src="https://img.shields.io/npm/dm/@clunch/line.svg" alt="downloads"></a>
@@ -48,6 +49,7 @@ Clunch.series('ui-line',line);
 |colors|Array\<string\>|线条的颜色|内置循环色||
 |max-value|number|最大值|动态计算得出||
 |min-value|number|最小值|动态计算得出||
+|is-interpolation|boolean|是否插值|false||
 
 由于此组件是基于[Clunch](https://github.com/hai2007/clunch)开发的，我们默认你已经掌握了相关知识。
 
@@ -90,7 +92,7 @@ target = {
 }
 ```
 
-其中，target.subRegion的格式举例子：```'0-2'```，表示你点击的是第一条线的第二个结点。
+其中，target.subRegion的格式举例子：```'0-2'```，表示你点击的是第一条线的第三个结点。
 
 这样子，你就可以添加弹框或者悬浮提示来实现和绘制图形的交互了！
 

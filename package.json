@@ -1,6 +1,6 @@
 {
   "name": "@clunch/line",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "description": "📈 折线图组件，包括折线和曲线、单条、多条、背景、渐变等常见的折线图。",
   "main": "index.js",
   "scripts": {
@@ -25,7 +25,7 @@
     "@hai2007/tool": "^0.6.2"
   },
   "devDependencies": {
-    "clunch": "^1.4.3",
+    "clunch": "^1.7.2",
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.10",
     "webpack-dev-server": "^3.11.0"
