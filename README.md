@@ -1,8 +1,8 @@
 # line
 📈 折线图组件，包括折线和曲线、单条、多条、背景、渐变等常见的折线图。
 
-<p align='center'><img width='400' src='./view.png'></p>
-<p align='center'><img width='400' src='./view-interpolation.png'></p>
+<p align='center'><img src='./view.png'></p>
+<p align='center'><img src='./view-interpolation.png'></p>
 
 <p>
   <a href="https://hai2007.gitee.io/npm-downloads?interval=7&packages=@clunch/line"><img src="https://img.shields.io/npm/dm/@clunch/line.svg" alt="downloads"></a>
